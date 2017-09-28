@@ -10,10 +10,13 @@ import ru.k0r0tk0ff.SpringBootJournalApplication.Repository.JournalRepository;
 
 import java.util.List;
 
-/**
- * Created by user on 9/27/2017.
- */
+   /**.
+   * Created by k0r0tk0ff on 9/27/2017.
+   */
 
+   /*
+   * @Controller означает, что класс используется в качестве контроллера (service)
+   */
 @Controller
 public class JournalController {
 
