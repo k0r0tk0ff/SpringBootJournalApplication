@@ -17,10 +17,14 @@ import java.util.List;
 @Controller
 public class JournalController {
 
+    /*
+    * @Autowired означает, что BEAN типа "JournalRepository" будет создан автоматически, 
+    * при необходимости его использования
+    */
     @Autowired
     JournalRepository repo;
 
-    /**
+    /*
      * For parsing "index.*" in /src/main/java/resources
      */
     /*    @RequestMapping("/")
@@ -29,6 +33,10 @@ public class JournalController {
         return "index";
     }*/
 
+    /*
+    * @ResponseBody означает, что метод возвращает содержимое ответ на REST запрос
+    * Трансформация в JSON производиться автоматически
+    */
     @RequestMapping("/")
     public @ResponseBody List<Journal> getJournal() {
         return repo.findAll();
