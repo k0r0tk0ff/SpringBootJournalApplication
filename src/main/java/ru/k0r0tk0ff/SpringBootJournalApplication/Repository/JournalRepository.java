@@ -7,7 +7,7 @@ import ru.k0r0tk0ff.SpringBootJournalApplication.Models.Journal;
  * Created by k0r0tk0ff on 9/27/2017.
  *
  * JpaRepository — это интерфейс фреймворка Spring Data предоставляющий набор стандартных методов JPA для работы с БД.
- * например List<Object> getAll() - возвратит список 
+ * например List<Type> getAll() - возвратит список всех обьектов типа "Type"
  *
  * можно написать свой кастомный метод -
  * public interface BankRepository extends JpaRepository<Journal, Long> {
