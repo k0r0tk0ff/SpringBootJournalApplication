@@ -1,5 +1,6 @@
-ackage ru.k0r0tk0ff.SpringBootJournalApplication.Models;
+package ru.k0r0tk0ff.SpringBootJournalApplication.Models;
 
+import javax.persistence.Entity;
 import javax.persistence.*;
 
 
