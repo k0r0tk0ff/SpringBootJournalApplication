@@ -25,12 +25,12 @@ public class JournalController {
     * при необходимости его использования
     */
     @Autowired
-    JournalRepository repo;
+    private JournalRepository repo;
 
     /*
      * For parsing "index.*" in /src/main/java/resources
      */
-    /*    @RequestMapping("/")
+/*        @RequestMapping("/asdf")
     public String index(Model model){
         model.addAttribute("journal", repo.findAll());
         return "index";
@@ -40,6 +40,7 @@ public class JournalController {
     * @ResponseBody означает, что метод возвращает содержимое ответ на REST запрос
     * Трансформация в JSON производиться автоматически
     */
+
     @RequestMapping("/")
     public @ResponseBody List<Journal> getJournal() {
         return repo.findAll();

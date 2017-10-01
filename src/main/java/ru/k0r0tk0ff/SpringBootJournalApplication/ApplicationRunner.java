@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Bean;
 import ru.k0r0tk0ff.SpringBootJournalApplication.Models.Journal;
 import ru.k0r0tk0ff.SpringBootJournalApplication.Repository.JournalRepository;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "ru.k0r0tk0ff.SpringBootJournalApplication")
 public class ApplicationRunner {
 
 	@Bean
