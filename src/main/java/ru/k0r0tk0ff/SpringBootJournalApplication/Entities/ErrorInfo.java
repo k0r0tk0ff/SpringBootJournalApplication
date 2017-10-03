@@ -1,4 +1,4 @@
-package ru.k0r0tk0ff.SpringBootJournalApplication.Models;
+package ru.k0r0tk0ff.SpringBootJournalApplication.Entities;
 
 /**
  * Created by user on 10/1/2017.

@@ -1,4 +1,4 @@
-package ru.k0r0tk0ff.SpringBootJournalApplication.Models;
+package ru.k0r0tk0ff.SpringBootJournalApplication.Entities;
 
 import javax.persistence.Entity;
 import javax.persistence.*;
@@ -30,20 +30,13 @@ public class Journal {
     @Transient
     private SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
 
-    /*
-    * Для корректной работы Spring Data JPA необходимы 
-    * a) коструктор со всеми параметрами 
-    */   
+    public Journal(){}
+
     public Journal(String title, String summary, String date) throws ParseException {
         this.title = title;
         this.summary = summary;
         this.created = format.parse(date);
     }
-
-    /*
-    * б) коструктор без параметров 
-    */
-    public Journal(){}
 
     public long getId() {
         return id;

@@ -6,7 +6,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
-import ru.k0r0tk0ff.SpringBootJournalApplication.Models.ErrorInfo;
+import ru.k0r0tk0ff.SpringBootJournalApplication.Entities.ErrorInfo;
 
 /**
  * Created by k0r0tk0ff on 10/1/2017.
