@@ -28,7 +28,6 @@ public class ApplicationRunner {
 	}
 
 	@Bean
-	//InitializingBean saveDataToClientRepository(ClientRepository clientRepo) {
 	InitializingBean saveData(ClientRepository clientRepo) {
 		return () -> {
 			clientRepo.save(
@@ -36,7 +35,6 @@ public class ApplicationRunner {
 		};
 	}
 	@Bean
-	//InitializingBean saveDataToPetRepository(PetRepository petRepo) {
 	InitializingBean saveData(PetRepository petRepo) {
 		return () -> {
 			petRepo.save(

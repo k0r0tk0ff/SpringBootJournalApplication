@@ -3,8 +3,6 @@ package ru.k0r0tk0ff.SpringBootJournalApplication.Entities;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.Collection;
 
 /**
  * Created by k0r0tk0ff on 10/3/2017.
@@ -25,24 +23,22 @@ public class Pet {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="id")
-    private long id;
+    private long petId;
     private String nick;
     private String kind;
     private String weight;
 
     @NotEmpty
-    @ManyToMany(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
-    @JoinTable(name = "Value",
-            joinColumns = { @JoinColumn(name = "id") },
-            inverseJoinColumns = { @JoinColumn(name = "petId") })
-    private Collection<Client> clients = new ArrayList<>();
+    @ManyToOne(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
+    @JoinColumn(name = "clientId")
+
+    //private Set<Pet> clients = new HashSet<>();
 
 
 
-    public long getId() { return id; }
+    public long getPetId() { return petId; }
 
-    public void setId(long id) { this.id = id; }
+    public void setPetId(long petId) { this.petId = petId; }
 
     public String getNick() { return nick; }
 
@@ -64,7 +60,7 @@ public class Pet {
 
         Pet pet = (Pet) o;
 
-        if (id != pet.id) return false;
+        if (petId != pet.petId) return false;
         if (!nick.equals(pet.nick)) return false;
         if (!kind.equals(pet.kind)) return false;
         return weight.equals(pet.weight);
@@ -72,7 +68,7 @@ public class Pet {
 
     @Override
     public int hashCode() {
-        int result = (int) (id ^ (id >>> 32));
+        int result = (int) (petId ^ (petId >>> 32));
         result = 31 * result + nick.hashCode();
         result = 31 * result + kind.hashCode();
         result = 31 * result + weight.hashCode();
