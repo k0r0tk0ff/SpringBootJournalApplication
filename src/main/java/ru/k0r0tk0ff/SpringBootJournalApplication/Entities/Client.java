@@ -39,18 +39,20 @@ public class Client {
 
     @OneToMany(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
     @JoinTable(
-            name = "STUDENT_PHONE",
+            name = "CATALOG",
             joinColumns = { @JoinColumn(name = "CLIENT_ID") },
             inverseJoinColumns = { @JoinColumn(name = "PET_ID") }
     )
+    //private Set<Pet> pets = new HashSet<>();
     private Set<Pet> pets = new HashSet<>();
 
     public void addPet(Pet pet) {
         pets.add(pet);
     }
 
+    // нихера не пашет!
     public Set<Pet> getPets() {
-        return this.pets;
+        return pets;
     }
 
 

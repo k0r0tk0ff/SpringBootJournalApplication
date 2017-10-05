@@ -50,6 +50,8 @@ public class ClientController {
         out.add(client.getLastName());
         out.add(client.getLogin());
         out.add(client.getTel());
+        out.add("aaaaaa");
+
 
         outPet = client.getPets();
         for(Pet pet : outPet) {
@@ -58,6 +60,8 @@ public class ClientController {
             out.add(pet.getNick());
             out.add(pet.getNick());
         }
+
+        out.add("bbbbb");
 
         return out;
     }
