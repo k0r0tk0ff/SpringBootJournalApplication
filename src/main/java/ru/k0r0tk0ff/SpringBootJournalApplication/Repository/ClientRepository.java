@@ -8,4 +8,5 @@ import ru.k0r0tk0ff.SpringBootJournalApplication.Entities.Client;
  */
 
 public interface ClientRepository extends JpaRepository<Client, Long> {
+
 }

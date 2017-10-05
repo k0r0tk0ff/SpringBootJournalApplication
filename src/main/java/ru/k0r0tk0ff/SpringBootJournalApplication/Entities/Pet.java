@@ -22,6 +22,7 @@ public class Pet {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "PET_ID")
     private long petId;
     private String nick;
     private String kind;

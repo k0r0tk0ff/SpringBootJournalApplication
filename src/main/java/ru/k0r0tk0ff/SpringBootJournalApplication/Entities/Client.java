@@ -33,8 +33,25 @@ public class Client {
     private String lastName;
     private String tel;
 
+/* work variant*/
+/*    @OneToMany(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
+    private Set<Pet> pets = new HashSet<>();*/
+
     @OneToMany(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
+    @JoinTable(
+            name = "STUDENT_PHONE",
+            joinColumns = { @JoinColumn(name = "CLIENT_ID") },
+            inverseJoinColumns = { @JoinColumn(name = "PET_ID") }
+    )
     private Set<Pet> pets = new HashSet<>();
+
+    public void addPet(Pet pet) {
+        pets.add(pet);
+    }
+
+    public Set<Pet> getPets() {
+        return this.pets;
+    }
 
 
     public long getId() { return clientId; }
