@@ -1,8 +1,7 @@
 package ru.k0r0tk0ff.SpringBootJournalApplication.Entities;
 
-import org.hibernate.validator.constraints.NotEmpty;
-
 import javax.persistence.*;
+
 
 /**
  * Created by k0r0tk0ff on 10/3/2017.
@@ -28,12 +27,8 @@ public class Pet {
     private String kind;
     private String weight;
 
-    @NotEmpty
-    @ManyToOne(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
-    @JoinColumn(name = "clientId")
-
-    //private Set<Pet> clients = new HashSet<>();
-
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Client client;
 
 
     public long getPetId() { return petId; }

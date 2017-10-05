@@ -15,6 +15,10 @@ import ru.k0r0tk0ff.SpringBootJournalApplication.Repository.PetRepository;
 @SpringBootApplication(scanBasePackages = "ru.k0r0tk0ff.SpringBootJournalApplication")
 public class ApplicationRunner {
 
+	public static void main(String[] args) {
+		SpringApplication.run(ApplicationRunner.class, args);
+	}
+
 	@Bean
 	InitializingBean saveData(JournalRepository repo) {
 		return () -> {
@@ -26,25 +30,20 @@ public class ApplicationRunner {
 					new Journal("Spring Boot in the Cloud","Spring Boot using Cloud Foundry","03/01/2016"));
 		};
 	}
-
 	@Bean
-	InitializingBean saveData(ClientRepository clientRepo) {
-		return () -> {
-			clientRepo.save(
-					new Client("asdf", "pa$$", "Name", "FamilyName", "+79991234599"));
-		};
-	}
-	@Bean
-	InitializingBean saveData(PetRepository petRepo) {
+	InitializingBean saveData2(PetRepository petRepo) {
 		return () -> {
 			petRepo.save(
 					new Pet("Markiz", "cat", "2.0 kg"));
 		};
 	}
 
-
-
-	public static void main(String[] args) {
-		SpringApplication.run(ApplicationRunner.class, args);
+	@Bean
+	InitializingBean saveData1(ClientRepository clientRepo) {
+		return () -> {
+			clientRepo.save(
+					new Client("asdf", "pa$$", "Name", "FamilyName", "+79991234599"));
+		};
 	}
+
 }

@@ -1,7 +1,5 @@
 package ru.k0r0tk0ff.SpringBootJournalApplication.Entities;
 
-import org.hibernate.validator.constraints.NotEmpty;
-
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -10,8 +8,8 @@ import java.util.Set;
  * Created by k0r0tk0ff on 10/3/2017.
  */
 
-@Table
 @Entity
+@Table(name = "CLIENT")
 public class Client {
 
     public Client() {
@@ -27,7 +25,7 @@ public class Client {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="id")
+    @Column(name="client_id")
     private long clientId;
     private String login;
     private String password;
@@ -35,7 +33,7 @@ public class Client {
     private String lastName;
     private String tel;
 
-    @OneToMany(mappedBy = "clients",fetch = FetchType.LAZY, cascade=CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
     private Set<Pet> pets = new HashSet<>();
 
 
