@@ -34,11 +34,20 @@ public class ClientAndPetServiceImpl implements ClientAndPetService {
 
     @Override
     public Set <Pet> getPetsByClient(long clientId) {
-        return (Set) this.clientRepo.getOne(clientId).getPets();
+        return (Set) this.clientRepo.findOne(clientId).getPets();
     }
 
     @Override
     public List<Pet> findAllPets() {
         return ((List<Pet>) this.petRepo.findAll());
+    }
+
+    @Override
+    public void saveClient(Client client) {
+        this.clientRepo.save(client);
+    }
+    @Override
+    public void savePet(Pet pet) {
+        this.petRepo.save(pet);
     }
 }

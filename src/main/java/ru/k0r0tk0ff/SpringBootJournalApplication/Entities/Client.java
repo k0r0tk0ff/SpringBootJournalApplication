@@ -27,9 +27,9 @@ public class Client implements Serializable {
     }
 
     @Id
-/*    @GeneratedValue(strategy = GenerationType.AUTO)*/
-    @GeneratedValue(generator="increment")
-    @GenericGenerator(name="increment", strategy = "increment")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+/*    @GeneratedValue(generator="increment")
+    @GenericGenerator(name="increment", strategy = "increment")*/
     @Column(name="CLIENT_ID")
     private long clientId;
 

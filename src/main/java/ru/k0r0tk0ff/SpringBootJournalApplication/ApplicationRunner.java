@@ -10,6 +10,7 @@ import ru.k0r0tk0ff.SpringBootJournalApplication.Entities.Pet;
 import ru.k0r0tk0ff.SpringBootJournalApplication.Repository.ClientRepository;
 import ru.k0r0tk0ff.SpringBootJournalApplication.Repository.JournalRepository;
 import ru.k0r0tk0ff.SpringBootJournalApplication.Repository.PetRepository;
+import ru.k0r0tk0ff.SpringBootJournalApplication.Services.ClientAndPetService;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -43,28 +44,52 @@ public class ApplicationRunner {
 	}*/
 
 
-	@Bean
+/*	@Bean
 	InitializingBean saveClients(ClientRepository clientRepo, PetRepository petRepo) {
 		return () -> {
-			clientRepo.save(
+*//*			clientRepo.save(
 					new Client("asdf", "pa$$", "Name", "FamilyName", "+79991234599"));
 			clientRepo.save(
-					new Client("aaaa", "pa$$", "aaaa", "FamilyName2", "+78881234599"));
+					new Client("aaaa", "pa$$", "aaaa", "FamilyName2", "+78881234599"));*//*
 
 			Client clientThree = new Client("bbbb", "pa$$", "bbbb", "FamilyName3", "+77771234599");
-			Pet Markiz = new Pet("Markiz", "cat", "2.0 kg");
+			clientRepo.save(clientThree);
+
+			Pet cat = new Pet("Markiz", "cat", "2.0 kg");
+			petRepo.save(cat);
+
 			Set<Pet> pets = new HashSet<>(0);
 			Set<Client> clients = new HashSet<>(0);
-			pets.add(Markiz);
+			pets.add(cat);
 			clients.add(clientThree);
-			Markiz.setClients(clients);
+			cat.setClients(clients);
 			clientThree.setPets(pets);
-
-			clientThree.setPets(pets);
-			clientRepo.save(clientThree);
-			petRepo.save(Markiz);
 
 		};
+	}*/
+
+	@Bean
+	InitializingBean saveClients(ClientAndPetService service) {
+		return () -> {
+
+			Client clientThree = new Client("bbbb", "pa$$", "bbbb", "FamilyName3", "+77771234599");
+//			clientRepo.save(clientThree);
+
+
+			Pet cat = new Pet("Markiz", "cat", "2.0 kg");
+//			petRepo.save(cat);
+
+			Set<Pet> pets = new HashSet<>(0);
+			Set<Client> clients = new HashSet<>(0);
+			pets.add(cat);
+			clients.add(clientThree);
+			cat.setClients(clients);
+			clientThree.setPets(pets);
+			service.saveClient(clientThree);
+			//service.savePet(cat);
+		};
 	}
+
+
 
 }

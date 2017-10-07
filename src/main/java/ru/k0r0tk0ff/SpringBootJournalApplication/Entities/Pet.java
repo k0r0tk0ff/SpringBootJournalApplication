@@ -29,13 +29,13 @@ public class Pet {
     private String weight;
 
     //@ManyToMany(fetch = FetchType.LAZY)
-    //@ManyToMany(mappedBy = pets)
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "")
+/*    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(
             name = "CATALOG",
             joinColumns = { @JoinColumn(name = "PET_ID") },
             inverseJoinColumns = { @JoinColumn(name = "CLIENT_ID") }
-    )
+    )*/
     private Set<Client> clients;
 
     public Set<Client> getClients() {
@@ -47,9 +47,9 @@ public class Pet {
     }
 
     @Id
-/*    @GeneratedValue(strategy = GenerationType.AUTO)*/
-    @GeneratedValue(generator="increment")
-    @GenericGenerator(name="increment", strategy = "increment")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+/*    @GeneratedValue(generator="increment")
+    @GenericGenerator(name="increment", strategy = "increment")*/
     @Column(name = "PET_ID")
     private long petId;
 

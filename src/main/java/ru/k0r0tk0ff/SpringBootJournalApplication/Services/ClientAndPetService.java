@@ -3,7 +3,6 @@ package ru.k0r0tk0ff.SpringBootJournalApplication.Services;
 import ru.k0r0tk0ff.SpringBootJournalApplication.Entities.Client;
 import ru.k0r0tk0ff.SpringBootJournalApplication.Entities.Pet;
 
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -16,8 +15,12 @@ public interface ClientAndPetService {
 
     List<Client> getAll();
 
-    Set<Pet> getPetsByClient(long clientId);
+    Set getPetsByClient(long clientId);
 
     List<Pet> findAllPets();
+
+    void saveClient(Client client);
+
+    void savePet(Pet pet);
 
 }
