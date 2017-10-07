@@ -3,6 +3,7 @@ package ru.k0r0tk0ff.SpringBootJournalApplication.Entities;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.Set;
 
 
 /**
@@ -22,19 +23,35 @@ public class Pet {
         this.weight = weight;
     }
 
-    @Id
-/*    @GeneratedValue(strategy = GenerationType.AUTO)*/
-    @GeneratedValue(generator="increment")
-    @GenericGenerator(name="increment", strategy = "increment")
-    @Column(name = "petId")
-    private long petId;
+
     private String nick;
     private String kind;
     private String weight;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Client client;
+    //@ManyToMany(fetch = FetchType.LAZY)
+    //@ManyToMany(mappedBy = pets)
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "CATALOG",
+            joinColumns = { @JoinColumn(name = "PET_ID") },
+            inverseJoinColumns = { @JoinColumn(name = "CLIENT_ID") }
+    )
+    private Set<Client> clients;
 
+    public Set<Client> getClients() {
+        return clients;
+    }
+
+    public void setClients(Set<Client> clients) {
+        this.clients = clients;
+    }
+
+    @Id
+/*    @GeneratedValue(strategy = GenerationType.AUTO)*/
+    @GeneratedValue(generator="increment")
+    @GenericGenerator(name="increment", strategy = "increment")
+    @Column(name = "PET_ID")
+    private long petId;
 
     public long getPetId() { return petId; }
 

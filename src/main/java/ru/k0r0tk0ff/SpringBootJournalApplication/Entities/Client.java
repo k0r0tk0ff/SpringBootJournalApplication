@@ -30,36 +30,39 @@ public class Client implements Serializable {
 /*    @GeneratedValue(strategy = GenerationType.AUTO)*/
     @GeneratedValue(generator="increment")
     @GenericGenerator(name="increment", strategy = "increment")
-    @Column(name="client_id")
+    @Column(name="CLIENT_ID")
     private long clientId;
+
     private String login;
     private String password;
     private String firstName;
     private String lastName;
     private String tel;
 
+
 /* work variant*/
 /*    @OneToMany(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
     private Set<Pet> pets = new HashSet<>();*/
 
-    @OneToMany(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
     @JoinTable(
             name = "CATALOG",
             joinColumns = { @JoinColumn(name = "CLIENT_ID") },
             inverseJoinColumns = { @JoinColumn(name = "PET_ID") }
     )
-    //private Set<Pet> pets = new HashSet<>();
-    private Set<Pet> pets = new HashSet<>();
+    private Set<Pet> pets;
 
-    public void addPet(Pet pet) {
-        pets.add(pet);
-    }
-
-    // нихера не пашет!
     public Set<Pet> getPets() {
-        return pets;
+        return this.pets;
     }
 
+    public void setPets(Set<Pet> pets) {
+        this.pets = pets;
+    }
+
+    public void setPet(Pet pet) {
+        this.pets.add(pet);
+    }
 
     public long getId() { return clientId; }
 

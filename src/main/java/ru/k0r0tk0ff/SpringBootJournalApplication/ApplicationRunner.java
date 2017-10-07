@@ -11,6 +11,9 @@ import ru.k0r0tk0ff.SpringBootJournalApplication.Repository.ClientRepository;
 import ru.k0r0tk0ff.SpringBootJournalApplication.Repository.JournalRepository;
 import ru.k0r0tk0ff.SpringBootJournalApplication.Repository.PetRepository;
 
+import java.util.HashSet;
+import java.util.Set;
+
 
 @SpringBootApplication(scanBasePackages = "ru.k0r0tk0ff.SpringBootJournalApplication")
 public class ApplicationRunner {
@@ -30,23 +33,37 @@ public class ApplicationRunner {
 					new Journal("Spring Boot in the Cloud","Spring Boot using Cloud Foundry","03/01/2016"));
 		};
 	}
-	@Bean
+
+/*	@Bean
 	InitializingBean savePets(PetRepository petRepo) {
 		return () -> {
 			petRepo.save(
 					new Pet("Markiz", "cat", "2.0 kg"));
 		};
-	}
+	}*/
+
 
 	@Bean
-	InitializingBean saveClients(ClientRepository clientRepo) {
+	InitializingBean saveClients(ClientRepository clientRepo, PetRepository petRepo) {
 		return () -> {
 			clientRepo.save(
 					new Client("asdf", "pa$$", "Name", "FamilyName", "+79991234599"));
 			clientRepo.save(
 					new Client("aaaa", "pa$$", "aaaa", "FamilyName2", "+78881234599"));
-			clientRepo.save(
-					new Client("bbbb", "pa$$", "bbbb", "FamilyName3", "+77771234599"));
+
+			Client clientThree = new Client("bbbb", "pa$$", "bbbb", "FamilyName3", "+77771234599");
+			Pet Markiz = new Pet("Markiz", "cat", "2.0 kg");
+			Set<Pet> pets = new HashSet<>(0);
+			Set<Client> clients = new HashSet<>(0);
+			pets.add(Markiz);
+			clients.add(clientThree);
+			Markiz.setClients(clients);
+			clientThree.setPets(pets);
+
+			clientThree.setPets(pets);
+			clientRepo.save(clientThree);
+			petRepo.save(Markiz);
+
 		};
 	}
 

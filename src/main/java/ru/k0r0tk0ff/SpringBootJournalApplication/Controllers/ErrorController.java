@@ -1,4 +1,4 @@
-package ru.k0r0tk0ff.SpringBootJournalApplication.Service;
+package ru.k0r0tk0ff.SpringBootJournalApplication.Controllers;
 
 
 import org.slf4j.Logger;
