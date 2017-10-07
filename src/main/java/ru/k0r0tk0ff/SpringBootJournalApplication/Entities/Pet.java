@@ -1,5 +1,7 @@
 package ru.k0r0tk0ff.SpringBootJournalApplication.Entities;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 
 
@@ -21,8 +23,10 @@ public class Pet {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "PET_ID")
+/*    @GeneratedValue(strategy = GenerationType.AUTO)*/
+    @GeneratedValue(generator="increment")
+    @GenericGenerator(name="increment", strategy = "increment")
+    @Column(name = "petId")
     private long petId;
     private String nick;
     private String kind;

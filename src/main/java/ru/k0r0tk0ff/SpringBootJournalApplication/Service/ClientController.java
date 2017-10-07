@@ -1,7 +1,6 @@
 package ru.k0r0tk0ff.SpringBootJournalApplication.Service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import ru.k0r0tk0ff.SpringBootJournalApplication.Entities.Client;
 import ru.k0r0tk0ff.SpringBootJournalApplication.Entities.Pet;

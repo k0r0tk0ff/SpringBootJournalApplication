@@ -31,7 +31,7 @@ public class ApplicationRunner {
 		};
 	}
 	@Bean
-	InitializingBean saveData2(PetRepository petRepo) {
+	InitializingBean savePets(PetRepository petRepo) {
 		return () -> {
 			petRepo.save(
 					new Pet("Markiz", "cat", "2.0 kg"));
@@ -39,10 +39,14 @@ public class ApplicationRunner {
 	}
 
 	@Bean
-	InitializingBean saveData1(ClientRepository clientRepo) {
+	InitializingBean saveClients(ClientRepository clientRepo) {
 		return () -> {
 			clientRepo.save(
 					new Client("asdf", "pa$$", "Name", "FamilyName", "+79991234599"));
+			clientRepo.save(
+					new Client("aaaa", "pa$$", "aaaa", "FamilyName2", "+78881234599"));
+			clientRepo.save(
+					new Client("bbbb", "pa$$", "bbbb", "FamilyName3", "+77771234599"));
 		};
 	}
 

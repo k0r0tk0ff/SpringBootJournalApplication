@@ -1,6 +1,9 @@
 package ru.k0r0tk0ff.SpringBootJournalApplication.Entities;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -10,7 +13,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "CLIENT")
-public class Client {
+public class Client implements Serializable {
 
     public Client() {
     }
@@ -24,7 +27,9 @@ public class Client {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+/*    @GeneratedValue(strategy = GenerationType.AUTO)*/
+    @GeneratedValue(generator="increment")
+    @GenericGenerator(name="increment", strategy = "increment")
     @Column(name="client_id")
     private long clientId;
     private String login;
