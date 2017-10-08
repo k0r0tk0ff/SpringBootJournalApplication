@@ -29,21 +29,21 @@ public class Pet {
     private String weight;
 
     //@ManyToMany(fetch = FetchType.LAZY)
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "")
-/*    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+/*    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(
             name = "CATALOG",
             joinColumns = { @JoinColumn(name = "PET_ID") },
             inverseJoinColumns = { @JoinColumn(name = "CLIENT_ID") }
     )*/
-    private Set<Client> clients;
+    private Client client;
 
-    public Set<Client> getClients() {
-        return clients;
+    public Client getClient() {
+        return client;
     }
 
-    public void setClients(Set<Client> clients) {
-        this.clients = clients;
+    public void setClient(Client client) {
+        this.client = client;
     }
 
     @Id

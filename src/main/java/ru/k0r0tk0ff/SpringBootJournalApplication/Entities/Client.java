@@ -44,13 +44,16 @@ public class Client implements Serializable {
 /*    @OneToMany(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
     private Set<Pet> pets = new HashSet<>();*/
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY, cascade=CascadeType.ALL, mappedBy = "client")
+    private Set<Pet> pets = new HashSet<>();
+
+    /*@OneToMany(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
     @JoinTable(
             name = "CATALOG",
             joinColumns = { @JoinColumn(name = "CLIENT_ID") },
             inverseJoinColumns = { @JoinColumn(name = "PET_ID") }
     )
-    private Set<Pet> pets;
+    private Set<Pet> pets;*/
 
     public Set<Pet> getPets() {
         return this.pets;

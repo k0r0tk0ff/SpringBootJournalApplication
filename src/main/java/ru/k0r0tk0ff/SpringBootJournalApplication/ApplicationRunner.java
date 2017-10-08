@@ -43,36 +43,28 @@ public class ApplicationRunner {
 		};
 	}*/
 
-
 /*	@Bean
 	InitializingBean saveClients(ClientRepository clientRepo, PetRepository petRepo) {
 		return () -> {
-*//*			clientRepo.save(
+			clientRepo.save(
 					new Client("asdf", "pa$$", "Name", "FamilyName", "+79991234599"));
 			clientRepo.save(
-					new Client("aaaa", "pa$$", "aaaa", "FamilyName2", "+78881234599"));*//*
+					new Client("aaaa", "pa$$", "aaaa", "FamilyName2", "+78881234599"));
 
 			Client clientThree = new Client("bbbb", "pa$$", "bbbb", "FamilyName3", "+77771234599");
 			clientRepo.save(clientThree);
 
 			Pet cat = new Pet("Markiz", "cat", "2.0 kg");
 			petRepo.save(cat);
-
-			Set<Pet> pets = new HashSet<>(0);
-			Set<Client> clients = new HashSet<>(0);
-			pets.add(cat);
-			clients.add(clientThree);
-			cat.setClients(clients);
-			clientThree.setPets(pets);
-
 		};
-	}*/
+	}
+*/
 
 	@Bean
 	InitializingBean saveClients(ClientAndPetService service) {
 		return () -> {
 
-			Client clientThree = new Client("bbbb", "pa$$", "bbbb", "FamilyName3", "+77771234599");
+			Client client = new Client("bbbb", "pa$$", "bbbb", "FamilyName3", "+77771234599");
 //			clientRepo.save(clientThree);
 
 
@@ -80,13 +72,11 @@ public class ApplicationRunner {
 //			petRepo.save(cat);
 
 			Set<Pet> pets = new HashSet<>(0);
-			Set<Client> clients = new HashSet<>(0);
 			pets.add(cat);
-			clients.add(clientThree);
-			cat.setClients(clients);
-			clientThree.setPets(pets);
-			service.saveClient(clientThree);
-			//service.savePet(cat);
+			cat.setClient(client);
+			client.setPets(pets);
+			service.saveClient(client);
+//			service.savePet(cat);
 		};
 	}
 

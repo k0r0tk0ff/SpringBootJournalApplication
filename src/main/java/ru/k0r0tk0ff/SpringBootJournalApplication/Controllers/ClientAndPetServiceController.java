@@ -28,7 +28,7 @@ public class ClientAndPetServiceController {
         this.clientAndPetService = clientAndPetService;
     }
 
-    @RequestMapping("/showcatalog")
+    @RequestMapping("/showclients")
     public @ResponseBody
     List<Client> getAll() {
         return clientAndPetService.getAll();
@@ -42,7 +42,7 @@ public class ClientAndPetServiceController {
         return outPet;
     }
 
-/*    @RequestMapping("/showallclients")
+    /*    @RequestMapping("/showallclients")
     public @ResponseBody
     List<Client> getClientsAsList() {
         return clientAndPetService.findAll();
