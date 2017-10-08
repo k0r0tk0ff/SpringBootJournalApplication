@@ -1,5 +1,6 @@
 package ru.k0r0tk0ff.SpringBootJournalApplication.Entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -44,6 +45,7 @@ public class Client implements Serializable {
 /*    @OneToMany(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
     private Set<Pet> pets = new HashSet<>();*/
 
+    @JsonBackReference
     @OneToMany(fetch = FetchType.LAZY, cascade=CascadeType.ALL, mappedBy = "client")
     private Set<Pet> pets = new HashSet<>();
 

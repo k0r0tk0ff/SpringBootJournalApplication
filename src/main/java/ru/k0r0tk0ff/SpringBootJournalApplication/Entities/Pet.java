@@ -1,5 +1,6 @@
 package ru.k0r0tk0ff.SpringBootJournalApplication.Entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -29,6 +30,7 @@ public class Pet {
     private String weight;
 
     //@ManyToMany(fetch = FetchType.LAZY)
+    @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 /*    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(
