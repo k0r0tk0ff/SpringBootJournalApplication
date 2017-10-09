@@ -33,7 +33,7 @@ public class ClientAndPetServiceImpl implements ClientAndPetService {
     }
 
     @Override
-    public Set <Pet> getPetsByClient(long clientId) {
+    public Set <Pet> getPetsByClientId(long clientId) {
         return (Set) this.clientRepo.findOne(clientId).getPets();
     }
 

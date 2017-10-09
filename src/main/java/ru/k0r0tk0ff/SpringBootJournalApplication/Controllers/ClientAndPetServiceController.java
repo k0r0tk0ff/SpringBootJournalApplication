@@ -36,9 +36,9 @@ public class ClientAndPetServiceController {
 
     @RequestMapping("/client")
     public @ResponseBody
-    Set<Pet> getClientsAsListWithHisPets(@RequestParam(value="id", defaultValue="1") String id) {
+    Set<Pet> getClientsAsListWithHisPets(@RequestParam(value="id") String id) {
         Set<Pet> outPet;
-        outPet = clientAndPetService.getPetsByClient(Long.valueOf(id));
+        outPet = clientAndPetService.getPetsByClientId(Long.valueOf(id));
         return outPet;
     }
 

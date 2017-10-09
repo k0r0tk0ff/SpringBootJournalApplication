@@ -15,7 +15,7 @@ public interface ClientAndPetService {
 
     List<Client> getAll();
 
-    Set getPetsByClient(long clientId);
+    Set getPetsByClientId(long clientId);
 
     List<Pet> findAllPets();
 

@@ -35,34 +35,13 @@ public class ApplicationRunner {
 		};
 	}
 
-/*	@Bean
-	InitializingBean savePets(PetRepository petRepo) {
-		return () -> {
-			petRepo.save(
-					new Pet("Markiz", "cat", "2.0 kg"));
-		};
-	}*/
-
-/*	@Bean
-	InitializingBean saveClients(ClientRepository clientRepo, PetRepository petRepo) {
-		return () -> {
-			clientRepo.save(
-					new Client("asdf", "pa$$", "Name", "FamilyName", "+79991234599"));
-			clientRepo.save(
-					new Client("aaaa", "pa$$", "aaaa", "FamilyName2", "+78881234599"));
-
-			Client clientThree = new Client("bbbb", "pa$$", "bbbb", "FamilyName3", "+77771234599");
-			clientRepo.save(clientThree);
-
-			Pet cat = new Pet("Markiz", "cat", "2.0 kg");
-			petRepo.save(cat);
-		};
-	}
-*/
-
 	@Bean
 	InitializingBean saveClients(ClientAndPetService service) {
 		return () -> {
+	//		service.saveClient(
+	//				new Client("asdf", "pa$$", "Name", "FamilyName", "+79991234599"));
+	//		service.saveClient(
+	//				new Client("aaaa", "pa$$", "aaaa", "FamilyName2", "+78881234599"));
 
 			Client client = new Client("bbbb", "pa$$", "bbbb", "FamilyName3", "+77771234599");
 //			clientRepo.save(clientThree);
@@ -76,10 +55,25 @@ public class ApplicationRunner {
 			cat.setClient(client);
 			client.setPets(pets);
 			service.saveClient(client);
-//			service.savePet(cat);
+			service.savePet(cat);
 		};
 	}
 
+	@Bean
+	InitializingBean saveClients2(ClientAndPetService service) {
+		return () -> {
+
+			Client client2 = new Client("asdf", "asdf", "asdf", "FamilyNamed", "+345345345");
+
+			Pet cat2 = new Pet("Murka", "cat", "2.0 kg");
+			Set<Pet> pets = new HashSet<>(0);
+			pets.add(cat2);
+			cat2.setClient(client2);
+			client2.setPets(pets);
+			service.saveClient(client2);
+			service.savePet(cat2);
+		};
+	}
 
 
 }
