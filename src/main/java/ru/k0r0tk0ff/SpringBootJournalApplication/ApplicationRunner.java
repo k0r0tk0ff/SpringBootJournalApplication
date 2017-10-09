@@ -43,7 +43,7 @@ public class ApplicationRunner {
 	//		service.saveClient(
 	//				new Client("aaaa", "pa$$", "aaaa", "FamilyName2", "+78881234599"));
 
-			Client client = new Client("bbbb", "pa$$", "bbbb", "FamilyName3", "+77771234599");
+			Client client = new Client("bbbb", "pa$$", "bbbb", "FamilyName3", "+77771234599", new HashSet<>());
 
 			Pet cat = new Pet("Markiz", "cat", "2.0 kg");
 
@@ -62,7 +62,7 @@ public class ApplicationRunner {
 	InitializingBean saveClients2(ClientAndPetService service) {
 		return () -> {
 
-			Client client2 = new Client("asdf", "asdf", "asdf", "FamilyNamed", "+345345345");
+			Client client2 = new Client("asdf", "asdf", "asdf", "FamilyNamed", "+345345345", new HashSet<>());
 			Pet cat2 = new Pet("Murka", "cat", "2.0 kg");
 
 			Set<Pet> pets = new HashSet<>(0);

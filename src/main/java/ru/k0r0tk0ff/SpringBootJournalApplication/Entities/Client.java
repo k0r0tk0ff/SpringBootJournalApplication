@@ -19,12 +19,13 @@ public class Client implements Serializable {
     public Client() {
     }
 
-    public Client(String login, String pasword, String firstName, String lastName, String tel) {
+    public Client(String login, String pasword, String firstName, String lastName, String tel, Set<Pet> pets) {
         this.login = login;
         this.password = pasword;
         this.firstName = firstName;
         this.lastName = lastName;
         this.tel = tel;
+        this.pets= pets;
     }
 
     @Id
@@ -58,7 +59,7 @@ public class Client implements Serializable {
     private Set<Pet> pets;*/
 
     public Set<Pet> getPets() {
-        return this.pets;
+        return pets;
     }
 
     public void setPets(Set<Pet> pets) {
