@@ -1,6 +1,8 @@
 package ru.k0r0tk0ff.SpringBootJournalApplication.Controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -9,6 +11,7 @@ import ru.k0r0tk0ff.SpringBootJournalApplication.Entities.Client;
 import ru.k0r0tk0ff.SpringBootJournalApplication.Entities.Pet;
 import ru.k0r0tk0ff.SpringBootJournalApplication.Services.ClientAndPetService;
 
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -28,10 +31,15 @@ public class ClientAndPetServiceController {
         this.clientAndPetService = clientAndPetService;
     }
 
-    @RequestMapping("/showclients")
+/*    @RequestMapping("/showclients")
     public @ResponseBody
     List<Client> getAll() {
         return clientAndPetService.getAll();
+    }*/
+
+    @RequestMapping("/showclients")
+    public ResponseEntity<Collection<Client>> getClients() {
+        return new ResponseEntity<>(clientAndPetService.getAll(), HttpStatus.OK);
     }
 
     @RequestMapping("/client")

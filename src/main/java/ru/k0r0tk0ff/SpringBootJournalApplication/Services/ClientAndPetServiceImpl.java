@@ -1,6 +1,8 @@
 package ru.k0r0tk0ff.SpringBootJournalApplication.Services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import ru.k0r0tk0ff.SpringBootJournalApplication.Entities.Client;
 import ru.k0r0tk0ff.SpringBootJournalApplication.Entities.Pet;
@@ -27,10 +29,21 @@ public class ClientAndPetServiceImpl implements ClientAndPetService {
     }
 
 
-    @Override
+/*    @Override
     public List<Client> getAll() {
-        return ((List<Client>) this.clientRepo.findAll());
-    }
+        List<Client> clients = ((List<Client>) this.clientRepo.findAll());
+        return (
+                for(Client client: clients) {
+
+                }
+        );
+    }*/
+
+    @Override
+    public List<Client> getAll() { return ((List<Client>) this.clientRepo.findAll()); }
+/*    public ResponseEntity<Client> getAll() {
+        return (new ResponseEntity<Client> (this.clientRepo.findAll(), HttpStatus.OK));
+    }*/
 
     @Override
     public Set <Pet> getPetsByClientId(long clientId) {

@@ -44,16 +44,15 @@ public class ApplicationRunner {
 	//				new Client("aaaa", "pa$$", "aaaa", "FamilyName2", "+78881234599"));
 
 			Client client = new Client("bbbb", "pa$$", "bbbb", "FamilyName3", "+77771234599");
-//			clientRepo.save(clientThree);
-
 
 			Pet cat = new Pet("Markiz", "cat", "2.0 kg");
-//			petRepo.save(cat);
 
 			Set<Pet> pets = new HashSet<>(0);
 			pets.add(cat);
+
 			cat.setClient(client);
 			client.setPets(pets);
+
 			service.saveClient(client);
 			service.savePet(cat);
 		};
@@ -64,12 +63,14 @@ public class ApplicationRunner {
 		return () -> {
 
 			Client client2 = new Client("asdf", "asdf", "asdf", "FamilyNamed", "+345345345");
-
 			Pet cat2 = new Pet("Murka", "cat", "2.0 kg");
+
 			Set<Pet> pets = new HashSet<>(0);
 			pets.add(cat2);
+
 			cat2.setClient(client2);
 			client2.setPets(pets);
+
 			service.saveClient(client2);
 			service.savePet(cat2);
 		};

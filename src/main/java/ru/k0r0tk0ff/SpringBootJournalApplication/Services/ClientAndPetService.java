@@ -1,5 +1,6 @@
 package ru.k0r0tk0ff.SpringBootJournalApplication.Services;
 
+import org.springframework.http.ResponseEntity;
 import ru.k0r0tk0ff.SpringBootJournalApplication.Entities.Client;
 import ru.k0r0tk0ff.SpringBootJournalApplication.Entities.Pet;
 
@@ -13,7 +14,7 @@ import java.util.Set;
 
 public interface ClientAndPetService {
 
-    List<Client> getAll();
+    List <Client> getAll();
 
     Set getPetsByClientId(long clientId);
 
