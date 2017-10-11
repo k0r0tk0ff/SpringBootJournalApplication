@@ -27,14 +27,14 @@ src\main\resources\application.properties
 ------  
 server.port=8000  
 server.contextPath=/project  
-logging.level.com.gigy=DEBUG  
+logging.level.ru/k0r0tk0ff=DEBUG  
 
 # Data source properties  
 spring.jpa.hibernate.ddl-auto=validate  
 spring.jpa.show-sql=true  
 ------  
 
-#### Про spring.jpa.hibernate.ddl-auto=validate  написано здесь -
+#### Про spring.jpa.hibernate.ddl-auto=validate  
 В директории также лежали файлы с sql кодом "schema.sql", "data.sql"  
 validate вероятнее всего сравнивает схему с той, что в "schema.sql".  
 Также, вероятнее всего придеться выставить параметр не "validate"  
