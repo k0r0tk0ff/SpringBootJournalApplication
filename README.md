@@ -45,4 +45,6 @@ validate вероятнее всего сравнивает схему с той
 https://gigsterous.github.io/engineering/2016/09/25/spring-boot-2.html  
 https://github.com/gigsterous/gigy-example/releases/tag/v2  
 
+https://docs.spring.io/spring-boot/docs/current/reference/pdf/spring-boot-reference.pdf
+
   
