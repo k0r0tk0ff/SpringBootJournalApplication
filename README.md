@@ -38,10 +38,7 @@ spring.jpa.show-sql=true
 В директории также лежали файлы с sql кодом "schema.sql", "data.sql"  
 validate вероятнее всего сравнивает схему с той, что в "schema.sql".  
 Также, вероятнее всего придеться выставить параметр не "validate"  
-
-1) Разделить на 2 repo
-2) Переименовать на маленькую букву название пакета
-а "create-drop" чтобы при перезапуске схема пересоздавалась.  
+  
 
 //--------------------- Секция с примером  
 Здесь рельно работающий проект с H2, Spring-data, SpringBoot, @ManyToMany, @OneToMany  
@@ -50,6 +47,7 @@ https://github.com/gigsterous/gigy-example/releases/tag/v2
 
 https://docs.spring.io/spring-boot/docs/current/reference/pdf/spring-boot-reference.pdf
 
+//--------------------- Секция заметок для исправления
 classpath = SpringBootJournalApplication/src/main/java/  
 Additional Classpath Elements -- http://maven.apache.org/surefire/maven-surefire-plugin/examples/configuring-classpath.html  
 https://maven.apache.org/shared/maven-archiver/examples/classpath.html#Prefix
