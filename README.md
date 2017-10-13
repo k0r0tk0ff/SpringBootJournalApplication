@@ -50,4 +50,8 @@ https://github.com/gigsterous/gigy-example/releases/tag/v2
 
 https://docs.spring.io/spring-boot/docs/current/reference/pdf/spring-boot-reference.pdf
 
+classpath = SpringBootJournalApplication/src/main/java/  
+Additional Classpath Elements -- http://maven.apache.org/surefire/maven-surefire-plugin/examples/configuring-classpath.html  
+https://maven.apache.org/shared/maven-archiver/examples/classpath.html#Prefix
+
   
