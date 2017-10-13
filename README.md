@@ -61,5 +61,8 @@ http://www.apress.com/br/book/9781430259084
 http://www.apress.com/us/book/9781430261513  
 
 
+### For Spring 4 for Proffesionals - CH7  
+see code! need add properties!
+
 
   
