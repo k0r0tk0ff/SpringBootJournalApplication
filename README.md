@@ -55,4 +55,10 @@ https://maven.apache.org/shared/maven-archiver/examples/classpath.html#Prefix
 How to define classpath
 https://stackoverflow.com/questions/227486/find-where-java-class-is-loaded-from
 
+From book "pro spring boot" p.140  
+http://www.apress.com/br/book/9781430259084  
+http://www.apress.com/us/book/9781430261513  
+
+
+
   
